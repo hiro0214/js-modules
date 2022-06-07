@@ -1,0 +1,40 @@
+$flag: 'data-accordion-active';
+$duration: 0.3;
+
+.c-accordion {
+  $p: &;
+  &[#{$flag}='false'] {
+    #{$p}__trigger {
+      &::after {
+        transform: translateY(-50%) rotateX(180deg);
+      }
+    }
+    #{$p}__detail {
+      max-height: 0;
+    }
+  }
+
+  &__trigger {
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 13px;
+      height: 7px;
+      content: '';
+      background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212.707%22%20height%3D%227.061%22%20viewBox%3D%220%200%2012.707%207.061%22%3E%0A%20%20%3Cpath%20id%3D%22%E3%83%91%E3%82%B9_24%22%20data-name%3D%22%E3%83%91%E3%82%B9%2024%22%20d%3D%22M2170.008%2C393.635l6%2C6-6%2C6%22%20transform%3D%22translate(405.988%20-2169.654)%20rotate(90)%22%20fill%3D%22none%22%20stroke%3D%22%23393c41%22%20stroke-width%3D%221%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      transition: transform $duration + s;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__detail {
+    overflow-y: hidden;
+    transition: max-height $duration + s;
+  }
+}

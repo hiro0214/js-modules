@@ -1,3 +1,5 @@
-import { main } from '../../.ts/main';
+import { initAccordion } from '../../.ts/components/_accordion';
 
-main();
+document.addEventListener('DOMContentLoaded', () => {
+  initAccordion();
+});
